@@ -64,7 +64,7 @@ function ManageProductTypes() {
     };
 
     const handleUpdate = async (id) => {
-        if(!editedName || editedName.trim === ""){
+        if(!editedName || editedName.trim() === ""){
                     alert("❌ Please add a valid product type name.");
                     return;
                 }
