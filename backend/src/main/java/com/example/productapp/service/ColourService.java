@@ -53,6 +53,11 @@ public class ColourService {
             throw new IllegalArgumentException("Colour name cannot be empty.");
         }
 
+        if (colourRepository.existsByName(colour.getName())) {
+            logger.error("Failed to create colour: Colour name '{}' already exists.", colour.getName());
+            throw new CustomException("Colour name already exists.");
+        }
+
         Colour createdColour = colourRepository.save(colour);
         logger.info("Colour created successfully with ID: {}", createdColour.getId());
         return createdColour;

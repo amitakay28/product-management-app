@@ -53,6 +53,11 @@ public class ProductTypeService {
             throw new IllegalArgumentException("Product Type name cannot be empty.");
         }
 
+        if (productTypeRepository.existsByName(productType.getName())) {
+            logger.error("Failed to create product type: Name '{}' already exists.", productType.getName());
+            throw new CustomException("Product type name already exists.");
+        }
+
         ProductType createdType = productTypeRepository.save(productType);
         logger.info("Product type created successfully with ID: {}", createdType.getId());
         return createdType;

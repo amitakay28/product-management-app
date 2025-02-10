@@ -113,7 +113,7 @@ class ColourServiceTest {
     void testUpdateColour_NotFound() {
         when(colourRepository.findById(99L)).thenReturn(Optional.empty());
 
-        Exception exception = assertThrows(ResourceNotFoundException.class, () -> colourService.updateColour(99L, new Colour()));
+        Exception exception = assertThrows(ResourceNotFoundException.class, () -> colourService.updateColour(99L, new Colour(null, "Some colour")));
         assertEquals("Colour not found with ID: 99", exception.getMessage());
     }
 }

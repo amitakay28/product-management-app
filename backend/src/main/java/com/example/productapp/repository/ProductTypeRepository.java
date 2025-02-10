@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Repository for managing ProductType entities.
  */
 public interface ProductTypeRepository extends JpaRepository<ProductType, Long> {
+    boolean existsByName(String name);
 }

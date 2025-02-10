@@ -117,7 +117,7 @@ class ProductTypeServiceTest {
     void testUpdateProductType_NotFound() {
         when(productTypeRepository.findById(99L)).thenReturn(Optional.empty());
 
-        Exception exception = assertThrows(ResourceNotFoundException.class, () -> productTypeService.updateProductType(99L, new ProductType()));
+        Exception exception = assertThrows(ResourceNotFoundException.class, () -> productTypeService.updateProductType(99L, new ProductType(null, "Some Product Type")));
         assertEquals("Product Type not found with ID: 99", exception.getMessage());
     }
 }

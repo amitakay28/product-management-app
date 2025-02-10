@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Repository for managing Colour entities.
  */
 public interface ColourRepository extends JpaRepository<Colour, Long> {
+    boolean existsByName(String name);
 }
