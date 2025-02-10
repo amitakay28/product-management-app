@@ -3,6 +3,8 @@ package com.example.productapp.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * DTO for returning detailed product information.
  */
@@ -12,5 +14,5 @@ public class ProductListDTO {
     private Long id;
     private String name;
     private String productType;
-    private String colours; // Comma-separated list of colour names
+    private List<String> colours;
 }

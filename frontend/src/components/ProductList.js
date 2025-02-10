@@ -21,11 +21,7 @@ function ProductList() {
     const fetchProducts = async () => {
         try {
             const response = await axios.get("/products");
-            const processedProducts = response.data.map(product => ({
-                ...product,
-                colours: Array.isArray(product.colours) ? product.colours : (product.colours ? product.colours.split(", ") : []),
-            }));
-            setProducts(processedProducts);
+            setProducts(response.data);
             setLoading(false);
         } catch (error) {
             setError("Failed to fetch products");

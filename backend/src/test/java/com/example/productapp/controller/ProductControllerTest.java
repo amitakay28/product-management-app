@@ -69,7 +69,7 @@ class ProductControllerTest {
      */
     @Test
     void testGetAllProducts_Success() {
-        List<ProductListDTO> products = Arrays.asList(new ProductListDTO(1L, "Laptop", "Electronics", "Black, Blue"));
+        List<ProductListDTO> products = Arrays.asList(new ProductListDTO(1L, "Laptop", "Electronics", Arrays.asList("Black, Blue")));
         when(productService.getAllProducts()).thenReturn(products);
 
         ResponseEntity<List<ProductListDTO>> response = productController.getAllProducts();

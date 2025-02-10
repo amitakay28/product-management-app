@@ -188,7 +188,7 @@ public class ProductService {
                 product.getId(),
                 product.getName(),
                 product.getProductType().getName(),
-                product.getColours().stream().map(Colour::getName).collect(Collectors.joining(", "))
+                product.getColours().stream().map(Colour::getName).collect(Collectors.toList())
         );
     }
 }
