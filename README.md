@@ -39,9 +39,11 @@ The simplest way to run everything (Backend, Frontend, Database) is using Docker
 docker-compose up --build
 ```
 
-- The backend will run at `http://localhost:8080`
-- The frontend will run at `http://localhost:3000`
-- PostgreSQL will be set up automatically.
+You can access the application at:
+
+- Frontend: http://localhost:3000
+- Backend (API Server): http://localhost:8080
+- PostgreSQL Database: Automatically set up inside a Docker container.
 - **Database data will persist even if the container is removed manually.**
 
 To stop the containers:
