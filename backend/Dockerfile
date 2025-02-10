@@ -1,5 +1,5 @@
-# Use OpenJDK 21
-FROM openjdk:21-jdk-slim
+# Use OpenJDK 21 as the base image for building
+FROM openjdk:21-jdk-slim AS build
 
 # Install Maven
 RUN apt-get update && apt-get install -y maven
@@ -13,8 +13,13 @@ COPY . .
 # Run Maven build inside the container
 RUN mvn clean package -DskipTests
 
-# Copy the generated JAR
-COPY target/product-management-app-1.0-SNAPSHOT.jar app.jar
+# Use a separate, smaller runtime image
+FROM openjdk:21-jdk-slim
+
+WORKDIR /app
+
+# Copy the built JAR from the previous stage
+COPY --from=build /app/target/product-management-app-1.0-SNAPSHOT.jar app.jar
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
