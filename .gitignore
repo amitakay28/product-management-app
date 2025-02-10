@@ -1,0 +1,42 @@
+# Java, Maven, and Spring Boot
+/backend/target/
+*.jar
+*.war
+*.iml
+/.mvn/
+mvnw
+mvnw.cmd
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Logs and temporary files
+/logs/
+*.log
+
+
+# IntelliJ IDEA
+/.idea/
+*.iws
+*.ipr
+*.iml
+out/
+
+# Node.js, React, and npm
+/frontend/node_modules/
+/frontend/build/
+frontend/package-lock.json
+
+# Coverage and Test Reports
+/coverage/
+*.lcov
+/test-output/
+jacoco.exec
+jacoco-report/
+
+# macOS DS_Store files
+.DS_Store
